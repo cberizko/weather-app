@@ -21,6 +21,8 @@ gem "activerecord", "~> 8.0"
 gem "rails-controller-testing"
 # Use dotenv-rails for environments through ENV files
 gem "dotenv-rails"
+# Use for prod caching
+gem "redis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
