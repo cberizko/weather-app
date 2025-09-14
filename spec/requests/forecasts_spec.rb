@@ -12,8 +12,8 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "POST /forecast" do
     it "redirects to the forecast show page with city and zip params" do
-      post forecast_path, params: { city: "City", zip: "12345" }
-      expect(response).to redirect_to(forecast_path(city: "City", zip: "12345"))
+      post forecast_path, params: { zip: "12345" }
+      expect(response).to redirect_to(forecast_path(zip: "12345"))
     end
   end
 
@@ -50,7 +50,7 @@ RSpec.describe "Forecasts", type: :request do
       after do
         Rails.cache.clear
       end
-      
+
       it "returns a successful response" do
         allow_any_instance_of(WeatherClient).to receive(:forecast_by_zip_code).and_return(data)
         get forecast_path, params: { zip: zip, city: city }

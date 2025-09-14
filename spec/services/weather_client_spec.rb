@@ -21,7 +21,7 @@ RSpec.describe WeatherClient do
 
       it "returns the parsed forecast data" do
         forecast = weather_client.forecast_by_zip_code(zip)
-        expect(forecast).to eq({"location" => {"name" => "A City"}})
+        expect(forecast).to eq({ "location" => { "name" => "A City" } })
       end
     end
 
@@ -47,7 +47,7 @@ RSpec.describe WeatherClient do
                              }.to_json)
       }
       before do
-        allow(httparty_response).to receive(:[]).with("error").and_return({"code" => 1006})
+        allow(httparty_response).to receive(:[]).with("error").and_return({ "code" => 1006 })
         allow(HTTParty).to receive(:get).and_return(httparty_response)
       end
 
