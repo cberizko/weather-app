@@ -1,24 +1,38 @@
-# README
+# Weather App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app takes an address and displays the current 5 day forecast of weather for the given address.
 
-Things you may want to cover:
+## Prerequisites
+- Rails 8
+- Ruby 3.4.4
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+Make sure you have Ruby and Rails installed on your computer.
 
-* Configuration
+Clone the repo and enter the project folder
 
-* Database creation
+```
+git clone git@github.com:cberizko/weather-app.git
+cd weather-app
+```
 
-* Database initialization
+Install gems
 
-* How to run the test suite
+```
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the web server
 
-* Deployment instructions
+```
+bin/dev
+```
+## Features
+`/forecast/new`
 
-* ...
+Lets you input an address to generate a forecast for
+
+`/forecast`
+
+Takes a zipcode and displays the 5 day weather forecast for the given zip code

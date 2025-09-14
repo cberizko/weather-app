@@ -12,8 +12,8 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "POST /forecast" do
     it "redirects to the forecast show page with city and zip params" do
-      post forecast_path, params: { city: "City", zip: "12345" }
-      expect(response).to redirect_to(forecast_path(city: "City", zip: "12345"))
+      post forecast_path, params: { zip: "12345" }
+      expect(response).to redirect_to(forecast_path(zip: "12345"))
     end
   end
 

@@ -3,7 +3,7 @@ class ForecastsController < ApplicationController
   end
 
   def create
-    redirect_to forecast_path(city: params[:city], zip: params[:zip])
+    redirect_to forecast_path(zip: params[:zip])
   end
 
   def show
