@@ -1,0 +1,46 @@
+<% if flash[:alert] %>
+  <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+    <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <div>
+      <%= flash[:alert]%>
+    </div>
+  </div>
+<% end %>
+<div class="min-h-screen bg-blue-700 dark:bg-blue-700 flex items-center justify-center">
+  <div class="w-full max-w-md bg-blue-600 dark:bg-blue-600 shadow-md rounded-lg p-8">
+    <h1 class="text-4xl font-bold text-blue-50 dark:text-blue-100 mb-6 text-center">Weather App</h1>
+
+    <%= form_with url: forecast_path, method: :post, local: true do %>
+      <div class="mb-4">
+        <%= label_tag :address, "Street Address", class: "block mb-2 text-sm font-medium text-blue-50 dark:text-blue-100" %>
+        <%= text_field_tag :address, params[:address], placeholder: "123 Main St", required: true,
+            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+
+      <div class="mb-4">
+        <%= label_tag :city, "City", class: "block mb-2 text-sm font-medium text-blue-50 dark:text-blue-100" %>
+        <%= text_field_tag :city, params[:city], placeholder: "San Francisco", required: true,
+            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+
+      <div class="mb-6">
+        <%= label_tag :state, "State / Province", class: "block mb-2 text-sm font-medium text-blue-50 dark:text-blue-100" %>
+        <%= text_field_tag :state, params[:state], placeholder: "CA", required: true,
+            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+
+      <div class="mb-6">
+        <%= label_tag :state, "Zip Code / Postal Code", class: "block mb-2 text-sm font-medium text-blue-50 dark:text-blue-100" %>
+        <%= text_field_tag :zip, params[:zip], placeholder: "90210", required: true,
+            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+
+      <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Get Forecast
+      </button>
+    <% end %>
+  </div>
+</div>

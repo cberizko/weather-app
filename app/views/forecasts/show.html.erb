@@ -1,0 +1,51 @@
+<div class="min-h-screen bg-blue-700 dark:bg-blue-700 flex items-center justify-center">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-blue-600 dark:bg-blue-600">
+      <h1 class="text-4xl font-bold text-white dark:text-white mb-6 text-center">Weather For <%= @forecast["location"]["name"] %></h1>
+      <h1 class="text-3xl font-bold text-white dark:text-white mb-6 text-center">
+        Current Temp: <%= "#{@forecast["current"]["temp_f"]}°f/#{@forecast["current"]["temp_c"]}°c" %>
+      </h1>
+      <% if @cached %>
+        <p class="text-s text-white dark:text-white text-center">*cached data</p>
+      <% end %>
+      <table class="w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100">
+          <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
+              <tr>
+                  <th scope="col" class="px-6 py-3">
+                      Forecast Day
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      High
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      Low
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      Condition
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @forecast["forecast"]["forecastday"].each do |day| %>
+                <tr class="bg-blue-500 border-blue-40">
+                    <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
+                        <%= day["date"] %>
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
+                        <%= "#{day["day"]["maxtemp_f"]}°f/#{day["day"]["maxtemp_c"]}°c" %>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
+                        <%= "#{day["day"]["mintemp_f"]}°f/#{day["day"]["mintemp_c"]}°c" %>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
+                        <%= day["day"]["condition"]["text"] %>
+                    </td>
+                </tr>
+              <% end %>
+          </tbody>
+      </table>
+      <div class="flex justify-center mt-8">
+        <%= link_to "Check another address", new_forecast_path,
+          class: "px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg shadow focus:ring-4 focus:ring-blue-300 transition duration-200 mb-4" %>
+      </div>
+  </div>
+</div>
