@@ -15,7 +15,7 @@ gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
 # Use these for stubbed sqlite db
-gem "sqlite3", "~> 2.1"
+gem "sqlite3", "~> 2.7"
 gem "activerecord", "~> 8.0"
 # Use this for controller testing methods for rspec
 gem "rails-controller-testing"
